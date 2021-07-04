@@ -23,21 +23,21 @@ def get_filters():
     while True:
         city=str(input('Choose a city from Chicago, New York City or Washington\n')).lower()
         if city not in cities:
-            print('Invalid city name')
+            print('Please enter a valid city name')
         else:
             break
 
     while True:
         month=str(input('To filter by month, type out the month and to not filter by month, type out "all"\n')).title()
         if month not in months:
-            print('Invalid month name')
+            print('Please enter a valid month name')
         else:
             break
 
     while True:
         day=str(input('To filter by day, type out the month and to not filter by day, type out "all"\n')).title()
         if day not in days:
-            print('Invalid day')
+            print('Please enter a valid day name')
         else:
             break
 
@@ -153,16 +153,15 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
-def display_data(df):
+def view_raw_data(df):
+    start=0
+    dec=input('\nWould you like to view raw data? Enter "yes" or "no"\n')
+    while dec=='yes': #An iteration to ask the user again and again if as long he is answering by yes
+        n=start+5
+        print(df[start:n])
+        dec=input('Would you like to view more? Enter "yes" or "no".\n')
+        start=n
 
-    print(df.head())
-    num = 0
-    while True:
-        view_raw_data = input('\nDo you want to view five row of the raw data? Enter "yes" or "no"\n')
-        if view_raw_data.lower() != 'yes':
-            return
-        num = num + 5
-        print(df.iloc[num:num+5])
 def main():
     
     while True:
@@ -173,7 +172,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        display_data(df)
+        view_raw_data(df)
 
         
 
