@@ -9,3 +9,6 @@ The project uses data provided by Motivate, a bike share system provider for man
 
 ### Files used
 Three .csv files (one for each city) were used in this project; chicago.csv, new_york_city.csv and washington.csv.
+
+### Credits
+https://www.youtube.com/watch?v=nQDFBd5NFA8&t=690s - This youtube tutorial helped me connecting my local repository to my github remote repository.
